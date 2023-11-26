@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}
+	Login - Shop
+{% endblock %}
+
+{% block content %}
+	<hr>
+	{% with msgs =  get_flashed_messages(with_categories=True) %}
+		{% for c, msg in msgs %}
+			{% if c == 'error' %}
+				<div class="flash-error">
+			{% else %}
+				<div class="success">
+			{% endif %}
+				{{ msg | safe }}</div><br>
+		{% endfor %}
+	{% endwith %}
+	<div class="user-modal-container">
+			<ul class="switcher">
+				<li><a class="selected" href="/login">Log in</a></li>
+				<li><a href="/register">New account</a></li>
+			</ul>
+			<div id="login" class="is-selected">
+				<form class="form" action="/login" method="POST" >
+					<p class="fieldset">
+						<label class="image-replace email" for="signin-email">E-mail</label>
+						<input class="full-width has-padding has-border" id="signin-email" type="email" name="mail" placeholder="E-mail" required>
+					</p>
+					<p class="fieldset">
+						<label class="image-replace password" for="signin-password">Password</label>
+						<input class="full-width has-padding has-border" id="signin-password" type="password" name="password" placeholder="Password" required>
+					</p>
+					
+					<p class="fieldset">
+						<input class="full-width" type="submit" value="Log in">
+					</p>
+				</form>
+			</div>
+
+
+    </form>
+  </div>
+	</div>
+{% endblock %}

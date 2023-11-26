@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}
+	Home - Shop
+{% endblock %}
+      
+{% block content %}
+	{% if search %}
+	<h3>Search results for "{{ query }}":</h3>
+	{% endif %}
+</div>
+
+	{% with msgs =  get_flashed_messages(with_categories=True) %}
+	{% for c, msg in msgs %}
+		{% if c == 'error' %}
+			<div class="flash-error">
+		{% else %}
+			<div class="success">
+		{% endif %}
+			{{ msg | safe}}</div><br>
+	{% endfor %}
+	{% endwith %}
+	</div>
+	<h3>Best Offer</h3>
+	<br>
+		<div class="container2">
+		<div class="Best-items">
+			
+	{% for item in items[0:4] %}<!--Les trois articles premières dans la base donnes sont les meilleure offre.-->
+	<a href="{{ url_for('item', id=item[0]) }}" class='item-link'>
+		<div class="item">
+			<div class="item-wrapper">
+				<div class="img-wrapper">
+					<img src="{{ item[4] }}" class="pic">
+				</div>
+				<span class="left-item">{{ item[1] }}</span>
+				<span class="right-item">{{ item[2] }} MAD</span><br>
+					
+			</div>
+		</div>
+	</a>
+	{% endfor %}
+	</div>
+
+	<br><br><h3>All</h3>
+	<br>
+	<div class="All-items">
+	{% for item in items[::-1] %}
+	<a href="{{ url_for('item', id=item[0]) }}">
+		<div class="item">
+			<div class="item-wrapper">
+				<div class="img-wrapper">
+					<img src="{{ item[4] }}" class="pic">
+				</div>
+				<span class="left-item">{{ item[1] }}</span>
+				<span class="right-item"><p>${{ item[2] }}</p></span><br>					
+			</div>
+		</div>
+	</a>
+	{% endfor %}
+	</div>
+
+	{% if not items %}
+	<div class="flash-error">
+		No items found.<br>
+		<a href="{{ url_for('home') }}">Discover new items</a>
+	</div>
+</div>
+</div>
+</div>
+
+</div>
+	{% endif %}
+{% endblock %}

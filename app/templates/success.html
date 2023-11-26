@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}
+	Payment Success - Shop
+{% endblock %}
+
+{% block content %}
+    <div class="success">
+        Payment successful!!<br>
+        Order placed successfully.
+        <a href="{{ url_for('home') }}">View items</a>
+    </div>
+{% endblock %}

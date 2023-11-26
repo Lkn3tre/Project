@@ -1,0 +1,55 @@
+{% extends "admin/base.html" %}
+
+{% block title %}
+	Admin items - Shop
+{% endblock %}
+<script src="https://js.stripe.com/v3/"></script>
+{% block content %}
+	{% with msgs =  get_flashed_messages(with_categories=True) %}
+	{% for c, msg in msgs %}
+		{% if c == 'error' %}
+			<div class="flash-error">
+		{% else %}
+			<div class="success">
+		{% endif %}
+			{{ msg }}</div><br>
+	{% endfor %}
+	{% endwith %}
+
+    {% if not items %}
+		<div class="flash-error">No items have been registered yet.</div>
+		<div class="add-new btn-success btn">
+        	<a href="{{ url_for('admin.add') }}" class="text-light">Add new item</a>
+    	</div>
+	{% else %}
+    <div class="add-new btn-success btn">
+        <a href="{{ url_for('admin.add') }}" class="text-light">Add new item</a>
+    </div>
+    <table class="table table-striped">
+        <tr>
+            <th>Item id</th>
+            <th>Name</th>
+			<th>Price</th>
+			<th>Category</th>
+			<th>Img Link</th>
+            <th>Details</th>
+            <th>Operations</th>
+        </tr>
+    {% for item in items %}
+        <tr>
+            <td>{{ item[0] }}</td>
+            <td>{{ item[1] }}</td>
+			<td>{{ item[2] }}</td>
+			<td>{{ item[3] }}</td>
+			<td>{{ item[4][:15] }}...</td>
+            <td>{{ item[5][:40] | safe }}...</td>
+			<td>
+                <a href="{{ url_for('admin.edit', id=item[0]) }}">&#9998;</a>
+				<a href="{{ url_for('admin.delete', id=item[0]) }}">&#128465;</a>
+			</td>
+        </tr>
+    {% endfor %}
+    </table>
+
+	{% endif %}
+{% endblock %}

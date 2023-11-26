@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}
+	Pay - Shop
+{% endblock %}
+
+{% block content %}
+	<hr>
+	{% with msgs =  get_flashed_messages(with_categories=True) %}
+		{% for c, msg in msgs %}
+			{% if c == 'error' %}
+				<div class="flash-error">
+			{% else %}
+				<div class="success">
+			{% endif %}
+				{{ msg | safe }}</div><br>
+		{% endfor %}
+	{% endwith %}
+	<div id="Pay" class="Pay">
+				<form class="form" action="/pay" method="POST" >
+					<b>Enter your information</b>
+					<p class="fieldset">
+						<input class="full-width has-padding has-border" id="name" name="name" placeholder="Your Name" required>
+					</p>
+					<p class="fieldset">
+						<input class="full-width has-padding has-border" id="account_number" type="text" name="account_number" placeholder="Your Account Number" required>
+					</p>
+					<p class="fieldset">
+						<input class="full-width has-padding has-border" id="birthday" name="birthday" type="date" required>
+					</p>
+					<p class="fieldset">
+						<input class="full-width has-padding has-border" type="text" name="cvv" pattern="[0-9]{3,4}" title="Enter a valid CVV" placeholder="Your cvv" required>
+					</p>
+					<p class="fieldset">
+						<input class="full-width has-padding has-border" id="country" type="text" name="country" placeholder="your country" required>
+					</p>
+					<p class="fieldset">
+						<input class="full-width has-padding has-border" name="city" placeholder="Your city" required>
+					</p>
+					<p class="fieldset">
+						<input class="full-width has-padding has-border" name="address" placeholder="Your address" required>
+					</p>
+					<p class="fieldset">
+						<input class="full-width has-padding has-border" type="text" name="Postal_code" pattern="^[0-9]{5,6}$" placeholder="Enter a valid postal code" required>
+					</p>
+					<p class="fieldset">
+						<input class="full-width" type="submit" value="Submit">
+					</p>
+				</form>
+	</div>
+{% endblock %}

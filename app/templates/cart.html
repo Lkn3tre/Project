@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}
+	Cart - Shop
+{% endblock %}
+<script src="https://js.stripe.com/v3/"></script>
+{% block content %}
+	{% with msgs =  get_flashed_messages(with_categories=True) %}
+	{% for c, msg in msgs %}
+		{% if c == 'error' %}
+			<div class="flash-error">
+		{% else %}
+			<div class="success">
+		{% endif %}
+			{{ msg | safe }}</div><br>
+	{% endfor %}
+	{% endwith %}
+
+	{% if not items %}
+		<div class="flash-error">
+			Cart is empty!<br>
+			<a href="{{ url_for('home') }}">Discover new items</a>
+		</div>
+	{% else %}
+		<a href="{{ url_for('home') }}" class="right-item">Add more items</a><br><br>
+	{% endif %}
+
+	<div class="items">
+	{% for i in range(items|length) %}
+    <div class="item">
+		<div class="item-wrapper">
+			<div class="img-wrapper">
+				<img src="{{ items[i][5] }}" class="pic">
+			</div>
+			<b>{{ items[i][1] }}</b>
+			<span class="right-item"></span><br>
+			Quantity: 
+			<span class="right-item">{{ quantity[i] }}</span><br>
+			Total:
+			<span class="right-item">{{ quantity[i]*items[i][2] }} MAD</span>
+			<br><br>
+			<a href="{{ url_for('remove', id=items[i][0], quantity=quantity[i]) }}">
+				<button class="remove-from-cart"> Remove from Cart </button>
+			</a>
+		</div>
+	</div>
+        {% endfor %}
+	</div>
+	{% if price %}
+	<div class="pay">
+		<form method="GET" action="{{ url_for('pay') }}">
+			<input type="hidden" value="{{ price_ids }}" name="price_ids">
+			Total: {{ price }} MAD<br><br>
+			<button class="bg-success btn-block btn-primary checkout"> Pay </button>
+		</form>
+	</div>
+	{% endif %}
+{% endblock %}

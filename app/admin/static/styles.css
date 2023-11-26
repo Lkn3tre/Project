@@ -1,0 +1,271 @@
+body{
+  background: radial-gradient(1.5em 6.28571em at 1.95em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 55%, rgba(255, 255, 255, 0) 55%) 0 0, radial-gradient(1.5em 6.28571em at -0.45em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 55%, rgba(255, 255, 255, 0) 55%) 1.5em 5.5em, radial-gradient(2.3em 4.57143em at 2.99em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.3) 55%, rgba(255, 255, 255, 0) 55%) 0 0, radial-gradient(2.3em 4.57143em at -0.69em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.3) 55%, rgba(255, 255, 255, 0) 55%) 2.3em 4em, radial-gradient(3.5em 6.28571em at 4.55em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 55%, rgba(255, 255, 255, 0) 55%) 0 0, radial-gradient(3.5em 6.28571em at -1.05em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 55%, rgba(255, 255, 255, 0) 55%) 3.5em 5.5em, radial-gradient(#15ffa5, #00ced1);
+  background-color: mediumspringgreen;
+  background-size: 1.5em 11em, 1.5em 11em, 2.3em 8em, 2.3em 8em, 3.5em 11em, 3.5em 11em, 100% 100%;
+  background-repeat: repeat;
+  }
+.main {
+	padding: 10vh 0;
+}
+table {
+	font-family: 'Rouge Script', cursive;
+	font-size: 25px;
+	margin: 0 auto;
+	border-radius: 10px;
+}
+table th {
+	color: #daebe9;
+	background-color: #2b8c81;
+	padding: 15px;
+}
+table tr {
+	border:1.9px solid #2b8c81;
+}
+
+table td, th {
+padding:5px 30px;
+background-color: rgba(0, 0, 0, 0.2);
+}
+
+.flash-error, .help-block, .success {
+	text-align: center;
+	padding: 5px;
+	font-weight:bold;
+}
+
+.flash-error, .help-block {
+	color: red;
+}
+
+.success {
+	color:green;
+}
+
+.add-new {
+	margin-left:65vw;
+	margin-bottom:20px;
+}
+
+.form {
+  padding: 1.4em;
+}
+.form .fieldset {
+  position: relative;
+  margin: 1.4em 0;
+}
+.form .fieldset:first-child {
+  margin-top: 0;
+}
+.form .fieldset:last-child {
+  margin-bottom: 0;
+}
+.form input {
+  margin: 0;
+  padding: 0;
+  border-radius: 0.25em;
+}
+.form input.full-width {
+  width: 100%;
+}
+.form input.has-padding {
+  padding: 12px 20px 12px 50px;
+}
+.form input.has-border {
+  border: 1px solid #d2d8d8;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+.form input.has-border:focus {
+  border-color: #343642;
+  box-shadow: 0 0 5px rgba(52, 54, 66, 0.1);
+  outline: none;
+}
+.form input.has-error {
+  border: 1px solid #d76666;
+}
+.form input[type=password] {
+  
+  padding-right: 65px;
+}
+.form input[type=submit] {
+  padding: 16px 0;
+  cursor: pointer;
+  background: #249086;
+  color: #FFF;
+  font-weight: bold;
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+}
+.form input[type=submit]:hover {
+  background: #e73333;
+}
+.no-touch .form input[type=submit]:hover, .no-touch .form input[type=submit]:focus {
+  background: #e73333;
+  outline: none;
+}
+@media only screen and (min-width: 600px) {
+  .form {
+    padding: 2em;
+  }
+  .form .fieldset {
+    margin: 2em 0;
+  }
+  .form .fieldset:first-child {
+    margin-top: 0;
+  }
+  .form .fieldset:last-child {
+    margin-bottom: 0;
+  }
+  .form input.has-padding {
+    padding: 16px 20px 16px 50px;
+  }
+  .form input[type=submit] {
+    padding: 16px 0;
+  }
+}
+
+.form-message {
+  padding: 1.4em 1.4em 0;
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  text-align: center;
+}
+@media only screen and (min-width: 600px) {
+  .form-message {
+    padding: 2em 2em 0;
+  }
+}
+
+.form-bottom-message {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: -40px;
+  text-align: center;
+  font-size: 14px;
+  font-size: 0.875rem;
+}
+.form-bottom-message a {
+  color: #FFF;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, .0);
+  padding: 0 0 0 2px;
+  -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+}
+.form-bottom-message a:hover {
+  -webkit-animation: borderslide-3px .5s;
+          animation: borderslide-3px .5s;
+  border-bottom: 1px solid rgba(255, 255, 255, 1);
+  padding-bottom: 3px;
+}
+
+@-webkit-keyframes borderslide-3px {
+  0% {
+    padding-bottom: 1px;
+  }
+  50% {
+    padding-bottom: 3px;
+  }
+}
+
+@keyframes borderslide-3px {
+  0% {
+    padding-bottom: 1px;
+  }
+  50% {
+    padding-bottom: 3px;
+  }
+}
+
+@-webkit-keyframes borderslide-2px {
+  0% {
+    padding-bottom: 1px;
+  }
+  50% {
+    padding-bottom: 2px;
+  }
+}
+
+@keyframes borderslide-2px {
+  0% {
+    padding-bottom: 1px;
+  }
+  50% {
+    padding-bottom: 2px;
+  }
+}
+
+.close-form {
+  /* form X button on top right */
+  display: block;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  right: 0;
+  top: -40px;
+  background: url("../img/icon-close.svg") no-repeat center center;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+@media only screen and (min-width: 1170px) {
+  .close-form {
+    display: none;
+  }
+}
+
+.accept-terms {
+  color: #249086;
+  text-decoration: none;
+  padding: 0 1px 1px 2px;
+  border-bottom: 1px solid rgba(246, 71, 71, .0);
+  -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+}
+
+.accept-terms:hover {
+  -webkit-animation: borderslide-2px .5s;
+          animation: borderslide-2px .5s;
+  padding-bottom: 2px;
+  border-bottom: 1px solid rgba(246, 71, 71, 1);
+}
+.add{
+	background: rgba(255, 255, 255, 0.9);
+	border-radius: 10px;
+}
+b{
+  font-family: 'Rouge Script', cursive;
+  font-size: 30px;
+  margin-top: 4px;
+  text-align: center;
+  color:black;
+}
+.navbar-brand{
+    font-family: 'Rouge Script', cursive;
+  font-size: 30px;
+  color:black;
+
+}
+.nav-link{
+    font-family: 'Rouge Script', cursive;
+  font-size: 20px;
+  color:black;
+
+}

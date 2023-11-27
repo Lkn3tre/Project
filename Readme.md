@@ -82,7 +82,7 @@ La page d'accueil va simplement recevoir all itmes du database et les afficher .
 @app.route("/")
 def home():
 	items = get_all_items()
-	return render_template("home.html", items=items)
+	return render_template("home.html", items=items,render=True)
 ```
 
 #### Page de Connexion
